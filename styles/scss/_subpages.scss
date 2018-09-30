@@ -14,6 +14,10 @@
         height: 100%;
         float: left;
         color: $white;
+        transition: all 0.3s linear;
+        &:hover{
+            color: $blue;
+        }
         .navigation__icon{
             position: relative;
             display: inline-block;
@@ -37,11 +41,12 @@
     }
     
 }
+
 .movie-section{
     height: 79vh;
     max-width: 900px;
     margin: 0 auto;
-    background-color: rgba(250, 235, 215, 0.116);
+    // background-color: rgba(250, 235, 215, 0.116);
     font-family: 'Encode Sans Condensed', sans-serif;
     overflow-y: scroll;
     display: flex;
@@ -49,16 +54,13 @@
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
+    
     @media only screen and (min-width: 400px) {
         margin: 0 auto;
-        -moz-scrollbar:none;
+        
         &::-webkit-scrollbar {
-            width: 0px;  /* remove scrollbar space */
-            background: transparent;  /* optional: just make scrollbar invisible */
-        }
-        /* optional: show position indicator in red */
-        &::-webkit-scrollbar-thumb{
-            background: #FF0000;
+            width: 0px; 
+            background: transparent;  
         }
     }
     
@@ -157,11 +159,13 @@
     max-width: 900px;
     position: relative;
     margin: 0 auto;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    
     .search-form{
         position: relative;
         height: 70%;
         margin: 0 7%;
-        border-bottom: 2px solid $white;
+        border-bottom: 2px solid $yellow;
         display: flex;
         flex-direction: row;
         line-height: 50px;
@@ -175,6 +179,20 @@
             padding: 0;
             flex: 1;
             font-size: 30px;
+            color: $white;
+            letter-spacing: 2px;
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: rgba(255, 255, 255, 0.664);
+                
+            }
+            
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $white;
+            }
+            
+            &::-ms-input-placeholder { /* Microsoft Edge */
+                color: $white;
+            }
         }
         .search-form__btn{
             height: 100%;
@@ -183,8 +201,14 @@
             border: 0;
             flex: 0 0 50px;
             background-color: transparent;
+            transition: all 0.3s linear;
+            color: $white;
+            cursor: pointer;
+            &:hover{
+                color: $blue;
+            }
             .search-form__icon{
-                color: $white;
+                
                 font-size: 25px;
             }
         }
