@@ -370,6 +370,7 @@ body * {
   position: relative;
   display: inline-block;
   height: 100%;
+  width: 50px;
   float: left;
   color: white;
   -webkit-transition: all 0.3s linear;
