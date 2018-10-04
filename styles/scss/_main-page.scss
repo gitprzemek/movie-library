@@ -2,7 +2,7 @@
     display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        text-align: left;
     .header__name{
         position: relative;
         width: 100%;
@@ -10,10 +10,17 @@
         padding: 20px 0 10px;
         margin: 0;
         box-sizing: border-box;
-        font-size: 2.4em;
-        font-family: 'Bungee Shade', cursive;
+        font-size: 3em;
+        font-family: 'Beon', cursive;
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 1),
+        0 0 30px rgba(0, 219, 219, 1),
+        0 0 40px rgba(0, 219, 219, 0.8),
+        0 0 70px rgba(0, 219, 219, 0.7),
+        0 0 80px rgba(0, 219, 219, 0.6),
+        0 0 100px rgba(0, 219, 219, 0.5);
         line-height: 1.3;
-        color: $yellow;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -34,10 +41,35 @@
     text-align: center;
     font-family: 'Sriracha', cursive;
     font-family: 'Bungee Inline', cursive;
+    
+    
+    .container__rectangle{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        transform-origin: 5% 5%;
+        transform: skewX(-25deg) translate(-50%, -50%);
+        
+        &--red{
+            
+            
+            left: 49%;
+            top: 51%;
+            border: 3px solid #d65bd6;
+            box-shadow: 0 0 10px $purple, 0 0 30px $purple, inset 0 0 10px $purple, inset 0 0 30px $purple;
+        }
+        &--blue{
+            
+            left: 52%;
+            top: 49%;
+            border: 3px solid #9089d3;
+            box-shadow: 0 0 10px #9089d3, 0 0 30px $darkblue,0 0 40px $darkblue, inset 0 0 10px $darkblue, inset 0 0 30px $darkblue,inset 0 0 40px $darkblue;
+        }
+    }
     .container__logo{
         position: relative;
         height: 40vh;
-        background-image: url(../../images/linesbg.png);
+        // background-image: url(../../images/linesbg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -68,12 +100,13 @@
             justify-content: center;
             align-items: center;
             color: $yellow;
-            border: 3px solid $blue;
+            border: 3px solid $white;
             border-radius: 20px;
             transition: all 0.3s linear;
+            box-shadow: 0 0 10px $blue, 0 0 30px $blue, inset 0 0 10px $blue, inset 0 0 30px $blue;
             
             &:hover{
-                background-color: $blue;
+                box-shadow: 0 0 10px $red, 0 0 30px $red, inset 0 0 10px $red, inset 0 0 30px $red;
             }
         }
     }

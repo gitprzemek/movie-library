@@ -23,3 +23,25 @@ movieList.onload = function(){
 
     }
 }
+
+
+// CANVAS
+
+// function canvasOne(){
+//     let canvas = document.getElementById("canvas1");
+
+    
+        
+//         let triangle = canvas.getContext("2d");
+//         triangle.beginPath();
+//         triangle.moveTo(0, 0);
+//         triangle.lineTo(100,150);
+//         triangle.lineTo(0,300);
+//         triangle.closePath();
+//         triangle.strokeStyle = "#FF0000";
+//         triangle.stroke();
+        
+    
+    
+// }
+// canvasOne();

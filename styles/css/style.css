@@ -334,12 +334,19 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "Beon";
+  src: url(../fonts/Beon.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   text-align: center;
   font-size: 20px;
   margin: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF8371), to(#7C3257));
-  background: linear-gradient(to bottom, #FF8371 0%, #7C3257 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(188, 95, 118, 0.05)), color-stop(10%, #23232b), color-stop(90%, #23232b), to(rgba(188, 95, 118, 0.05))), #23232b;
+  background: linear-gradient(to bottom, rgba(188, 95, 118, 0.05) 0%, #23232b 10%, #23232b 90%, rgba(188, 95, 118, 0.05) 100%), #23232b;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
@@ -642,7 +649,7 @@ body * {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-align: center;
+  text-align: left;
 }
 
 .header .header__name {
@@ -653,10 +660,11 @@ body * {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 2.4em;
-  font-family: 'Bungee Shade', cursive;
+  font-size: 3em;
+  font-family: 'Beon', cursive;
+  color: white;
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px #00dbdb, 0 0 40px rgba(0, 219, 219, 0.8), 0 0 70px rgba(0, 219, 219, 0.7), 0 0 80px rgba(0, 219, 219, 0.6), 0 0 100px rgba(0, 219, 219, 0.5);
   line-height: 1.3;
-  color: #FFD572;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -678,10 +686,35 @@ body * {
   font-family: 'Bungee Inline', cursive;
 }
 
+.container .container__rectangle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  -webkit-transform-origin: 5% 5%;
+          transform-origin: 5% 5%;
+  -webkit-transform: skewX(-25deg) translate(-50%, -50%);
+          transform: skewX(-25deg) translate(-50%, -50%);
+}
+
+.container .container__rectangle--red {
+  left: 49%;
+  top: 51%;
+  border: 3px solid #d65bd6;
+  -webkit-box-shadow: 0 0 10px #aa39aa, 0 0 30px #aa39aa, inset 0 0 10px #aa39aa, inset 0 0 30px #aa39aa;
+          box-shadow: 0 0 10px #aa39aa, 0 0 30px #aa39aa, inset 0 0 10px #aa39aa, inset 0 0 30px #aa39aa;
+}
+
+.container .container__rectangle--blue {
+  left: 52%;
+  top: 49%;
+  border: 3px solid #9089d3;
+  -webkit-box-shadow: 0 0 10px #9089d3, 0 0 30px #3428a5, 0 0 40px #3428a5, inset 0 0 10px #3428a5, inset 0 0 30px #3428a5, inset 0 0 40px #3428a5;
+          box-shadow: 0 0 10px #9089d3, 0 0 30px #3428a5, 0 0 40px #3428a5, inset 0 0 10px #3428a5, inset 0 0 30px #3428a5, inset 0 0 40px #3428a5;
+}
+
 .container .container__logo {
   position: relative;
   height: 40vh;
-  background-image: url(../../images/linesbg.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -736,13 +769,16 @@ body * {
       -ms-flex-align: center;
           align-items: center;
   color: #FFD572;
-  border: 3px solid #00dbdb;
+  border: 3px solid white;
   border-radius: 20px;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  -webkit-box-shadow: 0 0 10px #00dbdb, 0 0 30px #00dbdb, inset 0 0 10px #00dbdb, inset 0 0 30px #00dbdb;
+          box-shadow: 0 0 10px #00dbdb, 0 0 30px #00dbdb, inset 0 0 10px #00dbdb, inset 0 0 30px #00dbdb;
 }
 
 .container .container__buttons .container__btn:hover {
-  background-color: #00dbdb;
+  -webkit-box-shadow: 0 0 10px #E24C4D, 0 0 30px #E24C4D, inset 0 0 10px #E24C4D, inset 0 0 30px #E24C4D;
+          box-shadow: 0 0 10px #E24C4D, 0 0 30px #E24C4D, inset 0 0 10px #E24C4D, inset 0 0 30px #E24C4D;
 }
 /*# sourceMappingURL=style.css.map */
