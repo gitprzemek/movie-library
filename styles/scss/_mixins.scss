@@ -1,0 +1,14 @@
+@mixin shadowText {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 30px rgba(0, 219, 219, 1),
+    0 0 40px rgba(0, 219, 219, 0.8),
+    0 0 70px rgba(0, 219, 219, 0.7),
+    0 0 80px rgba(0, 219, 219, 0.6),
+    0 0 100px rgba(0, 219, 219, 0.5);
+}
+@mixin shadowTextDark {
+    color: rgba(255, 255, 255, 0.068);
+    text-shadow: 0 0 0px rgba(255, 255, 255, 0.3);
+}

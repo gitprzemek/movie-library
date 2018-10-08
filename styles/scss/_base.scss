@@ -4,11 +4,32 @@
     font-weight: 700;
     font-style: normal;
 }
+@font-face {
+    font-family: "La Patio Script";
+    src: url(../fonts/LaPatioScript.otf);
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "TextMeOne-Regular";
+    src: url(../fonts/TextMeOne-Regular.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Night Club 70s Regular";
+    src: url(../fonts/NightClub70sRegular.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
 body{
     text-align: center;
     font-size: 20px;
     margin: 0;
-    background: linear-gradient(to bottom, rgba(188, 95, 118, 0.05) 0%,$dark 10%,$dark 90%, rgba(188, 95, 118, 0.05) 100% ), $dark;
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0.99) 0%,  rgba(15, 15, 15, 0.2) 100% ), url(../../images/bg-city1.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     box-sizing: border-box;
     overflow: hidden;
 }

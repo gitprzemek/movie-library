@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade|Encode+Sans+Condensed:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade|Encode+Sans+Condensed:300,400,700"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
 
 
     <link rel="stylesheet" href="styles/css/style.css">
     <title>My movie library</title>
 </head>
+
 <body>
-    
+
     <section class="container">
-            <header class="header">
-                    <h1 class="header__name">My<br> movie<br> library</h1>
-                </header>
-            <div class="container__rectangle container__rectangle--blue"></div>
-        <div class="container__rectangle container__rectangle--red"></div>
-       
         <div class="container__logo">
-            <!-- <canvas id="canvas1" class="container__canvas1" width="200" height="300"></canvas> -->
-            <!-- <img src="images/popcorntape.png" alt="popcorn" class="container__img"> -->
-            <!-- <svg class="container__triangle1" height="300" width="200">
-                    <polygon points="0,0 100,150 0,300" style="fill:transparent;stroke:rgb(173, 23, 173); stroke-width:4" />
-                  </svg> -->
+            <div class="container__rectangle container__rectangle--blue"></div>
+            <div class="container__rectangle container__rectangle--red">
+                <img src="images/movie-tape-purplecircle.png" alt="popcorn" class="container__img container__img--circle">
+                <img src="images/movie-tape-purplecircle-side.png" alt="popcorn" class="container__img">
+            </div>
+            <header class="header">
+                <h1 class="header__name"><span class="header__ele--1">My</span><br> m<span class="header__ele--2">o</span>vie<br>
+                    <span class="header__ele--3">l</span>ibrary</h1>
+            </header>
         </div>
+
+
         <div class="container__buttons">
             <a href="search-movie.html" class="container__btn">Search movies</a>
         </div>
@@ -35,4 +40,5 @@
 
     <script src="/scripts/main.js"></script>
 </body>
+
 </html>
