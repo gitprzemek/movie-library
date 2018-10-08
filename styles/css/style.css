@@ -399,11 +399,17 @@ body * {
 
 .navigation .navigation__link {
   position: relative;
-  display: inline-block;
   height: 100%;
   width: 50px;
   float: left;
   color: white;
+  text-align: left;
+}
+
+@media only screen and (min-width: 900px) {
+  .navigation .navigation__link {
+    text-align: center;
+  }
 }
 
 .navigation .navigation__link .navigation__icon {
@@ -429,12 +435,12 @@ body * {
 .navigation .navigation__title {
   position: relative;
   float: right;
-  display: inline-block;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  color: #FFD572;
-  font-family: 'Josefin Sans', cursive;
+  color: white;
+  font-family: 'Beon', cursive;
+  text-shadow: 0 0 10px #00dbdb, 0 0 20px #00dbdb, 0 0 30px #00dbdb, 0 0 60px #00dbdb;
 }
 
 .movie-section {
@@ -495,7 +501,6 @@ body * {
 .movie-section .movie-container .movie-container__about {
   height: 100%;
   width: 60%;
-  display: inline-block;
   float: right;
   padding: 5px;
   position: relative;
@@ -511,7 +516,7 @@ body * {
   font-size: 20px;
   line-height: 30px;
   padding-left: 10px;
-  color: #E24C4D;
+  color: #aa39aa;
 }
 
 .movie-section .movie-container .movie-container__about .movie-container__title {
@@ -562,7 +567,7 @@ body * {
   right: 0;
   bottom: 0;
   font-weight: 400;
-  color: #E24C4D;
+  color: #aa39aa;
   visibility: visible;
 }
 
@@ -607,6 +612,10 @@ body * {
           box-shadow: 0 0 10px #00dbdb, 0 0 30px #00dbdb, inset 0 0 10px #00dbdb, inset 0 0 30px #00dbdb;
 }
 
+.search-section .search-form:focus-within {
+  background-color: rgba(0, 219, 219, 0.3);
+}
+
 .search-section .search-form .search-form__input {
   height: 100%;
   -webkit-box-sizing: border-box;
@@ -625,22 +634,26 @@ body * {
 
 .search-section .search-form .search-form__input::-webkit-input-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgba(255, 255, 255, 0.664);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 219, 219, 0.7), 0 0 20px rgba(0, 219, 219, 0.7);
 }
 
 .search-section .search-form .search-form__input:-ms-input-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgba(255, 255, 255, 0.664);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 219, 219, 0.7), 0 0 20px rgba(0, 219, 219, 0.7);
 }
 
 .search-section .search-form .search-form__input::-ms-input-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgba(255, 255, 255, 0.664);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 219, 219, 0.7), 0 0 20px rgba(0, 219, 219, 0.7);
 }
 
 .search-section .search-form .search-form__input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgba(255, 255, 255, 0.664);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 219, 219, 0.7), 0 0 20px rgba(0, 219, 219, 0.7);
 }
 
 .search-section .search-form .search-form__input:-ms-input-placeholder {

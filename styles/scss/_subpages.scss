@@ -10,11 +10,15 @@
     }
     .navigation__link{
         position: relative;
-        display: inline-block;
+        // display: inline-block;
         height: 100%;
         width: 50px;
         float: left;
         color: $white;
+        text-align: left;
+        @media only screen and (min-width: 900px) {
+            text-align: center;
+        }
         
         
         .navigation__icon{
@@ -37,11 +41,12 @@
     .navigation__title{
         position: relative;
         float: right;
-        display: inline-block;
+        // display: inline-block;
         top: 50%;
         transform: translateY(-50%);
-        color: $yellow;
-        font-family: 'Josefin Sans', cursive;
+        color: $white;
+        font-family: 'Beon', cursive;
+        text-shadow: 0 0 10px $blue, 0 0 20px $blue, 0 0 30px $blue, 0 0 60px $blue;
     }
     
 }
@@ -88,7 +93,7 @@
         .movie-container__about{
             height: 100%;
             width: 60%;
-            display: inline-block;
+            // display: inline-block;
             float: right;
             padding: 5px;
             position: relative;
@@ -102,7 +107,7 @@
                 font-size: 20px;
                 line-height: 30px;
                 padding-left: 10px;
-                color: $red;
+                color: $purple;
             }
             .movie-container__title{
                 position: relative;
@@ -145,7 +150,7 @@
                         right: 0;
                         bottom: 0;
                         font-weight: 400;
-                        color: $red;
+                        color: $purple;
                         visibility: visible;
                     }
                     &:checked:before {
@@ -186,6 +191,9 @@
             box-shadow: 0 0 10px $blue, 0 0 30px $blue, inset 0 0 10px $blue, inset 0 0 30px $blue;
 
         }
+        &:focus-within{
+            background-color: rgba(0, 219, 219,0.3);
+        }
         .search-form__input{
             height: 100%;
             box-sizing: border-box;
@@ -198,7 +206,9 @@
             color: $white;
             letter-spacing: 2px;
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: rgba(255, 255, 255, 0.664);
+                color: rgba(255, 255, 255, 0.9);
+                text-shadow: 0 0 10px rgba(0, 219, 219, 0.7), 0 0 20px rgba(0, 219, 219, 0.7);
+                
                 
             }
             
@@ -209,7 +219,11 @@
             &::-ms-input-placeholder { /* Microsoft Edge */
                 color: $white;
             }
+            // &:focus{
+            //     background-color: rgba(0, 219, 219,0.3);
+            // }
         }
+        
         .search-form__btn{
             height: 100%;
             width: 50px;
