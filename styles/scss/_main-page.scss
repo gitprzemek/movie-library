@@ -248,7 +248,7 @@
                 }
 
                 .container__img--circle {
-                    width: 125px;
+                    width: 128px;
                     top: -24%;
                     animation: spin 10s linear infinite;
                     transform-origin: 50% 50%;
@@ -260,7 +260,7 @@
                     }
 
                     100% {
-                        transform: perspective(23px) rotateY(2deg) rotateZ(360deg);
+                        transform: perspective(23px) rotateY(2deg) rotateZ(-360deg);
                     }
                 }
             }
