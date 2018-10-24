@@ -1,20 +1,23 @@
-
-
 let movieList = new XMLHttpRequest();
 let movieSearch = new XMLHttpRequest();
 let movieObj;
 let movieResult;
 let searchObj;
 let searchResult;
+function popular() {
+    fetch("https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=642874b006093ef1d8becb7a5a90179c")
+        .then(resp => resp.json())
+        .then(resp => {
+            movieResult = resp.results;
+            document.getElementById("movie-section").innerHTML = `${movieResult.map(movieCard).join("")}`;
 
+            shortText();
 
-movieList.open("GET", "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=642874b006093ef1d8becb7a5a90179c", true);
-movieList.responseType = "text";
-movieList.send(null);
-console.log(movieList.status);
-
+        });
+}
+popular();
 // CARD TEMPLATE HTML
-function movieCard(movie){
+function movieCard(movie) {
     return `
     <div class="movie-container">
         <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}" alt="NO PHOTO" class="movie-container__img">
@@ -29,85 +32,111 @@ function movieCard(movie){
     `
 }
 // MAX LENGHT TEXT IN CONTAINER ABOUT
-function shortText(){
+function shortText() {
     const maxText = document.getElementsByClassName("movie-container__text");
     for (let i = 0; i < maxText.length; i++) {
         if (maxText[i].className == "movie-container__text") {
             maxText[i].innerHTML = maxText[i].innerHTML.substring(0, 210) + '<span>...</span>';
         }
-    } 
-}
-
-movieList.onload = function(){
-    if (movieList.status === 200){
-        movieObj = JSON.parse(movieList.responseText);
-        movieResult = movieObj.results;
-        document.getElementById("movie-section").innerHTML = `${movieResult.map(movieCard).join("")}`;
     }
-    shortText(); 
 }
 // NEW REQUEST FOR SEARCH AFTER CLICK BUTTON
 
 
 const btnSearch = document.getElementById("search-form__btn");
-btnSearch.addEventListener("click", function(){
+btnSearch.addEventListener("click", function () {
     // REQ FOR SEARCH
     let inputSearch = document.getElementById("search-form__input").value;
-    movieSearch.open("GET", "https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query="+inputSearch+"&page=1", true);
-    movieSearch.responseType = "text";
-    movieSearch.onload = function(){
-        if (movieSearch.status === 200){
-            searchObj = JSON.parse(movieSearch.responseText);
-            searchResult = searchObj.results;
-            console.log(searchObj)
-            console.log(searchObj.page);
+    fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=1")
+        .then(resp => resp.json())
+        .then(resp => {
+            searchResult = resp.results;
+            document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
+
+            shortText();
+
+        });
+
+});
+
+
+
+// PAGINATION SITES
+
+
+const btnNext = document.getElementById("nextBtn");
+const btnPrev = document.getElementById("prevBtn");
+
+let currentPage = 1;
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        changePage(currentPage);
+    }
+}
+
+function nextPage() {
+    if (currentPage < 5) {
+        currentPage++;
+        changePage(currentPage);
+        console.log(currentPage)
+    }
+}
+
+
+function changePage(page) {
+    let inputSearch = document.getElementById("search-form__input").value;
+    fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=" + page + "")
+        .then(resp => resp.json())
+
+        .then(resp => {
+
+            searchResult = resp.results;
+            // var maxPages = resp.total_pages;
+            console.log(searchResult);
+            console.log(resp.page);
+            console.log(resp.total_pages);
+            console.log(resp);
+            // let maxPage = 
 
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
-        }
-        shortText();
-    }
-    movieSearch.send(null);
 
-})
-
-
-    
-
-
-        let inputSearch = document.getElementById("search-form__input").value;
-        const btnNext = document.getElementById("nextBtn");
-        const btnPrev = document.getElementById("prevBtn");
-
-        var currentPage = 1;
-        var maxPages = searchObj.total_pages;
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                changePage(currentPage);
-            }
-        }
-
-        function nextPage() {
-            if (currentPage < maxPages) {
-                currentPage++;
-                changePage(currentPage);
-            }
-        }
-        function changePage(page){
-            movieSearch.open("GET", "https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page="+ ++page +'"', true);
-        movieSearch.responseType = "text";
-        movieSearch.onload = function () {
-            if (movieSearch.status === 200) {
-                searchObj = JSON.parse(movieSearch.responseText);
-                searchResult = searchObj.results;
-                console.log(searchObj)
-                console.log(searchObj.page);
-
-                document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
-            }
             shortText();
-        }
-        movieSearch.send(null);
+
+        });
+}
+btnNext.addEventListener("click", nextPage);
+btnPrev.addEventListener("click", prevPage);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // var btn_next = document.getElementById("btn_next");
         // var btn_prev = document.getElementById("btn_prev");
         // var listing_table = document.getElementById("listingTable");
@@ -135,8 +164,8 @@ btnSearch.addEventListener("click", function(){
         // } else {
         //     btn_next.style.visibility = "visible";
         // }
-    }
-    btnNext.addEventListener("click", nextPage());    
+    
+    // btnNext.addEventListener("click", nextPage());    
         
 
 
@@ -149,7 +178,7 @@ btnSearch.addEventListener("click", function(){
         
     
 
-
+/*
 
     var current_page = 1;
     var records_per_page = 3;
@@ -165,7 +194,7 @@ btnSearch.addEventListener("click", function(){
         { adName: "AdName 8"},
         { adName: "AdName 9"},
         { adName: "AdName 10"}
-    ]; // Can be obtained from another source, such as your objJson variable
+    ]; 
     
     function prevPage()
     {
@@ -221,7 +250,8 @@ btnSearch.addEventListener("click", function(){
     
     window.onload = function() {
         changePage(1);
-    };
+    }; 
+    */
 // CANVAS
 
 // function canvasOne(){
