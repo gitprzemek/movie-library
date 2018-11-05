@@ -16,6 +16,29 @@ function popular() {
         });
 }
 popular();
+
+// NAVIGATION CLOSE/OPEN
+const openBtn = document.getElementById("navBtnOpen");
+const closeBtn = document.getElementById("navBtnClose");
+const navList = document.getElementById("navList");
+/* Open */
+function openNav() {
+    navList.style.height = "100vh";
+}
+/* Close */
+function closeNav() {
+    navList.style.height = "0vh";
+}
+
+openBtn.addEventListener("click", openNav);
+closeBtn.addEventListener("click", closeNav);
+
+
+
+
+
+
+
 // CARD TEMPLATE HTML
 function movieCard(movie) {
     return `
@@ -69,6 +92,57 @@ const btnPrev = document.getElementById("prevBtn");
 
 let currentPage = 1;
 
+let maxlenght;
+
+
+function changePage(page) {
+    let inputSearch = document.getElementById("search-form__input").value;
+    fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=" + page + "")
+        .then(resp => resp.json())
+
+        .then(resp => {
+
+            searchResult = resp.results;
+            // var maxPages = resp.total_pages;
+            // console.log(searchResult);
+            // console.log(resp.page);
+            // console.log(resp.total_pages);
+            // console.log(resp);
+            // let maxPage = 
+            maxlenght = resp.total_pages;
+
+            document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
+            
+            shortText();
+            // getLenght(resp);
+            // const promise1 = new Promise(function(resolve, reject) {
+            //     resolve
+            //   });
+            return maxlenght;
+        });
+        // let lenght = function getLenght(resp){
+        //     // console.log(resp.total_pages)
+        //     return resp.total_pages;
+        // };
+        return maxlenght;
+        console.log("p "+maxlenght);
+};
+// let lenght = changePage().then(function(resp){
+//     console.log(resp.total_pages);
+//     return resp.total_pages;
+// });
+// let lenght = function getLenght(resp){
+//     // console.log(resp.total_pages)
+//     return resp.total_pages;
+// };
+console.log("drigi "+maxlenght);
+// function getLenght(resp){
+//     resp.total_pages;
+//     console.log(resp.total_pages);
+// }
+// console.log(getLeanght());
+
+
 function prevPage() {
     if (currentPage > 1) {
         currentPage--;
@@ -80,13 +154,18 @@ function nextPage() {
     if (currentPage < 5) {
         currentPage++;
         changePage(currentPage);
-        console.log(currentPage)
+        console.log(currentPage);
+        // console.log(lenght);
     }
 }
 
+btnNext.addEventListener("click", nextPage);
+btnPrev.addEventListener("click", prevPage);
 
-function changePage(page) {
-    let inputSearch = document.getElementById("search-form__input").value;
+
+/*
+function LoadNew(page) {
+    
     fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=" + page + "")
         .then(resp => resp.json())
 
@@ -106,11 +185,10 @@ function changePage(page) {
 
         });
 }
-btnNext.addEventListener("click", nextPage);
 btnPrev.addEventListener("click", prevPage);
 
 
-
+*/
 
 
 

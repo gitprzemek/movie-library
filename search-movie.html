@@ -18,8 +18,19 @@
 
 <body>
     <nav class="navigation">
-        <a href="index.html" class="navigation__link"><span class="fas fa-angle-left navigation__icon"></span></a>
-        <span class="navigation__title">Library</span>
+        <a href="index.html" class="navigation__link navigation__link--back"><span class="fas fa-angle-left navigation__icon"></span></a>
+        <button id="navBtnOpen" class="navigation__link navigation__link--list"><span class="fas fa-caret-down navigation__icon"></span>
+            <span class="navigation__title">MOVIE LISTS</span></button>
+        <div id="navList" class="navigation__list">
+            <button id="navBtnClose" class="navigation__list-btn" onclick="closeNav()"><span class="fas fa-times"></span></button>
+            <div class="navigation__list-cont">
+                <a href="#" class="navigation__list-item">Latest movies</a>
+                <a href="#" class="navigation__list-item">Now playing</a>
+                <a href="#" class="navigation__list-item">Top rated</a>
+                <a href="#" class="navigation__list-item">Upcoming</a>
+            </div>
+        </div>
+        
     </nav>
     <section class="main-container">
     <section class="movie-section" id="movie-section">
