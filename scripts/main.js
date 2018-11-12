@@ -4,6 +4,7 @@ let movieObj;
 let movieResult;
 let searchObj;
 let searchResult;
+
 popular();
 async function popular(page) {
     
@@ -18,12 +19,8 @@ async function popular(page) {
             shortText();
             
         });
-        
-        
     }
     
-
-
 
 async function paginationPage(){
     let infoLenght = await popular();
@@ -55,7 +52,7 @@ btnPrev.addEventListener("click", prevPage);
 // paginationPage();
 
 
-
+// cooco
 
 
 
@@ -228,12 +225,6 @@ popularBtn.addEventListener("click", loadPopular);
 nowPlayingBtn.addEventListener("click", loadNowPlaying);
 topRatedBtn.addEventListener("click", loadTopRated);
 upcomingBtn.addEventListener("click", loadUpcoming);
-
-
-
-
-
-
 
 
 
