@@ -4,34 +4,84 @@ let movieObj;
 let movieResult;
 let searchObj;
 let searchResult;
-function popular() {
-    fetch("https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=642874b006093ef1d8becb7a5a90179c")
+popular();
+async function popular(page) {
+    
+        await fetch("https://api.themoviedb.org/3/movie/popular?api_key=642874b006093ef1d8becb7a5a90179c&page="+page+"")
         .then(resp => resp.json())
         .then(resp => {
+            movieApi = resp;
             movieResult = resp.results;
+            maxLenght = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${movieResult.map(movieCard).join("")}`;
-
+            
             shortText();
-
+            
         });
+        
+        
+    }
+    
+
+
+
+async function paginationPage(){
+    let infoLenght = await popular();
+
+    console.log(maxLenght);
+
+    const btnNext = document.getElementById("nextBtn");
+    const btnPrev = document.getElementById("prevBtn");
+    let currentPage = 1;
+    // let maxlenght = resp.total_pages;
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        popular(currentPage);
+    }
 }
-popular();
+function nextPage() {
+    if (currentPage < maxLenght) {
+        currentPage++;
+        popular(currentPage)
+        
+    }
+}
+
+btnNext.addEventListener("click", nextPage);
+btnPrev.addEventListener("click", prevPage);
+
+}
+// paginationPage();
+
+
+
+
+
 
 // NAVIGATION CLOSE/OPEN
 const openBtn = document.getElementById("navBtnOpen");
 const closeBtn = document.getElementById("navBtnClose");
 const navList = document.getElementById("navList");
+const linkList = document.getElementsByClassName("navigation__list-item");
 /* Open */
 function openNav() {
-    navList.style.height = "100vh";
+    navList.classList.add("navShow");
+    closeBtn.classList.add("showXBtn");
 }
 /* Close */
 function closeNav() {
-    navList.style.height = "0vh";
+    navList.classList.remove("navShow");
+    closeBtn.classList.remove("showXBtn");
 }
 
 openBtn.addEventListener("click", openNav);
 closeBtn.addEventListener("click", closeNav);
+
+// iterate links for close nav
+for(i=0;i<linkList.length;i++){
+    linkList[i].addEventListener('click', closeNav);
+    }
 
 
 
@@ -54,6 +104,9 @@ function movieCard(movie) {
     </div>
     `
 }
+
+
+
 // MAX LENGHT TEXT IN CONTAINER ABOUT
 function shortText() {
     const maxText = document.getElementsByClassName("movie-container__text");
@@ -67,34 +120,174 @@ function shortText() {
 
 
 const btnSearch = document.getElementById("search-form__btn");
-btnSearch.addEventListener("click", function () {
-    // REQ FOR SEARCH
+async function searchMovie(page){
     let inputSearch = document.getElementById("search-form__input").value;
-    fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=1")
+    await fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page="+page+"")
         .then(resp => resp.json())
         .then(resp => {
             searchResult = resp.results;
+            maxLenghtx = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
 
             shortText();
 
         });
+}
+btnSearch.addEventListener("click", searchMovie);
 
-});
+async function paginationPageS(){
+    let infoLenght = await searchMovie();
+
+    console.log(maxLenghtx);
+
+    const btnNext = document.getElementById("nextBtn");
+    const btnPrev = document.getElementById("prevBtn");
+    let currentPage = 1;
+    // let maxlenght = resp.total_pages;
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        searchMovie(currentPage);
+    }
+}
+function nextPage() {
+    if (currentPage < maxLenght) {
+        currentPage++;
+        searchMovie(currentPage)
+        
+        console.log(currentPage);
+        // console.log(lenght);
+    }
+}
+
+btnNext.addEventListener("click", nextPage);
+btnPrev.addEventListener("click", prevPage);
+
+}
+paginationPageS();
+
+
+
+// LOAD JSON FROM NAV LINKS
+
+function loadPopular(page) {
+    fetch("https://api.themoviedb.org/3/movie/popular?api_key=642874b006093ef1d8becb7a5a90179c&page="+ page +"")
+        .then(resp => resp.json())
+
+        .then(resp => {
+            searchResult = resp.results;
+            document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
+            
+            shortText();
+            // paginationSites(resp);
+        });
+         
+};
+function loadNowPlaying() {
+    fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=642874b006093ef1d8becb7a5a90179c&page=1")
+        .then(resp => resp.json())
+
+        .then(resp => {
+            searchResult = resp.results;
+            document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
+            
+            shortText();
+        });
+         
+};
+function loadTopRated() {
+    fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=642874b006093ef1d8becb7a5a90179c&page=1")
+        .then(resp => resp.json())
+
+        .then(resp => {
+            searchResult = resp.results;
+            document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
+            
+            shortText();
+        });
+         
+};
+function loadUpcoming() {
+    fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=642874b006093ef1d8becb7a5a90179c&page=1")
+        .then(resp => resp.json())
+
+        .then(resp => {
+            searchResult = resp.results;
+            document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
+            
+            shortText();
+        });
+         
+};
+const popularBtn = document.getElementById("popular");
+const nowPlayingBtn = document.getElementById("nowPlaying");
+const topRatedBtn = document.getElementById("topRated");
+const upcomingBtn = document.getElementById("upcoming");
+
+popularBtn.addEventListener("click", loadPopular);
+nowPlayingBtn.addEventListener("click", loadNowPlaying);
+topRatedBtn.addEventListener("click", loadTopRated);
+upcomingBtn.addEventListener("click", loadUpcoming);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // PAGINATION SITES
 
+function paginationSites(resp){
+    const btnNext = document.getElementById("nextBtn");
+    const btnPrev = document.getElementById("prevBtn");
+    let currentPage = 1;
+    let maxlenght = resp.total_pages;
 
-const btnNext = document.getElementById("nextBtn");
-const btnPrev = document.getElementById("prevBtn");
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            changePage(currentPage);
+        }
+    }
+    function nextPage() {
+        if (currentPage < maxlenght) {
+            currentPage++;
+            loadPopular(currentPage)
+            
+            console.log(currentPage);
+            // console.log(lenght);
+        }
+    }
+    
+    btnNext.addEventListener("click", nextPage);
+    btnPrev.addEventListener("click", prevPage);
 
-let currentPage = 1;
-
-let maxlenght;
+}
 
 
+
+
+
+
+// async function getData(url) {
+//     const response = await fetch(url);
+
+//     return response.json()
+// }
+
+// async function main() {
+//     const data = await getData(URL);
+
+//     console.log(data)
+// }
+/*
 function changePage(page) {
     let inputSearch = document.getElementById("search-form__input").value;
     fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=" + page + "")
@@ -114,53 +307,46 @@ function changePage(page) {
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
             
             shortText();
-            // getLenght(resp);
+            getLenght(resp);
             // const promise1 = new Promise(function(resolve, reject) {
             //     resolve
             //   });
-            return maxlenght;
+            
+            
         });
         // let lenght = function getLenght(resp){
         //     // console.log(resp.total_pages)
         //     return resp.total_pages;
         // };
-        return maxlenght;
-        console.log("p "+maxlenght);
+        
+        
 };
+*/
 // let lenght = changePage().then(function(resp){
 //     console.log(resp.total_pages);
 //     return resp.total_pages;
 // });
-// let lenght = function getLenght(resp){
-//     // console.log(resp.total_pages)
-//     return resp.total_pages;
-// };
-console.log("drigi "+maxlenght);
 // function getLenght(resp){
-//     resp.total_pages;
-//     console.log(resp.total_pages);
-// }
+//     // console.log(resp.total_pages)
+//     let getLenght = resp.total_pages;
+//     console.log(getLenght);
+//     return getLenght;
+// };
+
+
+// console.log(getLenght());
+// console.log("drigi "+maxlenght);
+// function getLenght(resp){
+//     const data = changePage();
+//     // resp.total_pages;
+//     // console.log(resp.total_pages);
+//     // console.log(data);
+// };
+
 // console.log(getLeanght());
 
 
-function prevPage() {
-    if (currentPage > 1) {
-        currentPage--;
-        changePage(currentPage);
-    }
-}
 
-function nextPage() {
-    if (currentPage < 5) {
-        currentPage++;
-        changePage(currentPage);
-        console.log(currentPage);
-        // console.log(lenght);
-    }
-}
-
-btnNext.addEventListener("click", nextPage);
-btnPrev.addEventListener("click", prevPage);
 
 
 /*

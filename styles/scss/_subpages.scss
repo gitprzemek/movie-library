@@ -50,8 +50,8 @@
 
     .navigation__link--list {
         .navigation__icon {
-            top: -2px;
-            font-size: 40px;
+            // top: -2px;
+            font-size: 25px;
             padding: 0 15px;
         }
 
@@ -77,11 +77,13 @@
         transition: 0.5s;
         font-family: 'Beon', sans-serif;
         overflow: hidden;
-
+        &.navShow{
+            height: 100vh;
+        }
 
         .navigation__list-btn {
             position: absolute;
-            top: 40px;
+            top: -140px;
             right: 40px;
             font-size: 50px;
             background-color: transparent;
@@ -93,7 +95,9 @@
             transition: all 0.3s linear;
             color: $white;
             text-shadow: 0 0 10px $purple, 0 0 20px $purple, 0 0 30px $purple, 0 0 60px $purple;
-
+            &.showXBtn{
+                top: 40px;
+            }
             &:hover {
                 text-shadow: 0 0 10px $red, 0 0 20px $red, 0 0 30px $red, 0 0 60px $red;
 
@@ -196,7 +200,7 @@
                     font-size: 20px;
                     line-height: 30px;
                     padding-left: 10px;
-                    color: $purple;
+                    color: $pink;
                 }
 
                 .movie-container__title {
@@ -252,7 +256,7 @@
                             right: 0;
                             bottom: 0;
                             font-weight: 400;
-                            color: $purple;
+                            color: $pink;
                             visibility: visible;
                         }
 
