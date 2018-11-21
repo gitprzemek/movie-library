@@ -12,4 +12,8 @@
     color: rgba(255, 255, 255, 0.068);
     text-shadow: 0 0 0px rgba(255, 255, 255, 0.3);
 }
-
+@mixin tablets {
+    @media only screen and (min-width: 600px) {
+        @content;
+    }
+}

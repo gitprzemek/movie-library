@@ -200,7 +200,8 @@
                     font-size: 20px;
                     line-height: 30px;
                     padding-left: 10px;
-                    color: $pink;
+                    color: rgb(253, 252, 253);
+                    text-shadow: 0 0 5px $pink, 0 0 8px $pink, 0 0 15px $pink, 0 0 27px $pink;
                 }
 
                 .movie-container__title {
@@ -234,38 +235,47 @@
                     // text-overflow:ellipsis;
                 }
 
-                .movie-container__star {
+                .movie-container__more {
                     position: absolute;
                     bottom: 0;
                     right: 0;
                     padding: 0 10px 10px 0;
-                    font-size: 25px;
+                    font-size: 12px;
+                    text-decoration: none;
+                    color: rgb(255, 255, 255);
+                    text-shadow: 0 0 3px $blue, 0 0 6px $blue, 0 0 15px $blue, 0 0 17px $blue;
+                    transition: all 0.3s linear; 
 
-                    input[type=checkbox] {
-                        visibility: hidden;
-                        width: 25px;
-                        height: 20px;
+                        &:hover {
+                            text-shadow: 0 0 10px $pink, 0 0 20px $pink, 0 0 30px $pink, 0 0 60px $pink;
 
-                        &:before {
-                            content: "\f005";
-                            position: relative;
-                            font-family: 'Font Awesome\ 5 Free';
-                            display: inline-block;
-                            width: 25px;
-                            height: 20px;
-                            right: 0;
-                            bottom: 0;
-                            font-weight: 400;
-                            color: $pink;
-                            visibility: visible;
                         }
 
-                        &:checked:before {
-                            content: "\f005";
-                            font-weight: 900;
-                            color: $yellow;
-                        }
-                    }
+                    // input[type=checkbox] {
+                    //     visibility: hidden;
+                    //     width: 25px;
+                    //     height: 20px;
+
+                    //     &:before {
+                    //         content: "\f005";
+                    //         position: relative;
+                    //         font-family: 'Font Awesome\ 5 Free';
+                    //         display: inline-block;
+                    //         width: 25px;
+                    //         height: 20px;
+                    //         right: 0;
+                    //         bottom: 0;
+                    //         font-weight: 400;
+                    //         color: $pink;
+                    //         visibility: visible;
+                    //     }
+
+                    //     &:checked:before {
+                    //         content: "\f005";
+                    //         font-weight: 900;
+                    //         color: $yellow;
+                    //     }
+                    // }
                 }
             }
         }
