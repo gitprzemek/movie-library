@@ -53,7 +53,7 @@ upcomingBtn.addEventListener("click", function () {
 function movieCard(movie) {
     return `
     <div class="movie-container">
-        <img src="http://image.tmdb.org/t/p/w185/${movie.poster_path}" alt="NO PHOTO" class="movie-container__img">
+        <img src="https://image.tmdb.org/t/p/w185/${movie.poster_path}" alt="NO PHOTO" class="movie-container__img">
         <div class="movie-container__about">
             <span class="movie-container__percent">${movie.vote_average}</span>
             <h2 class="movie-container__title">${movie.original_title}</h2>
