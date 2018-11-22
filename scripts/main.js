@@ -31,7 +31,7 @@ openBtn.addEventListener("click", openNav);
 closeBtn.addEventListener("click", closeNav);
 
 // iterate links for close nav
-for (i = 0; i < linkList.length; i++) {
+for (let i = 0; i < linkList.length; i++) {
     linkList[i].addEventListener('click', closeNav);
 }
 
@@ -90,9 +90,9 @@ function popular(page) {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=642874b006093ef1d8becb7a5a90179c&page=" + page + "")
         .then(resp => resp.json())
         .then(resp => {
-            movieApi = resp;
-            movieResult = resp.results;
-            maxLength = resp.total_pages;
+            let movieApi = resp;
+            let movieResult = resp.results;
+            let maxLength = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${movieResult.map(movieCard).join("")}`;
             document.getElementById("btns-container").innerHTML = paginationCont();
             shortText();
@@ -126,7 +126,7 @@ function searchMovie(inputSearch, page) {
         .then(resp => resp.json())
         .then(resp => {
             
-            searchResult = resp.results;
+            let searchResult = resp.results;
             let maxLenght = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
             document.getElementById("btns-container").innerHTML = paginationCont();
@@ -175,8 +175,8 @@ function loadNowPlaying(page) {
         .then(resp => resp.json())
 
         .then(resp => {
-            searchResult = resp.results;
-            maxLength = resp.total_pages;
+            let searchResult = resp.results;
+            let maxLength = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
             document.getElementById("btns-container").innerHTML = paginationCont();
             shortText();
@@ -212,8 +212,8 @@ function loadTopRated(page) {
     fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=642874b006093ef1d8becb7a5a90179c&page=" + page + "")
         .then(resp => resp.json())
         .then(resp => {
-            searchResult = resp.results;
-            maxLength = resp.total_pages;
+            let searchResult = resp.results;
+            let maxLength = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
             document.getElementById("btns-container").innerHTML = paginationCont();
             shortText();
@@ -250,8 +250,8 @@ function loadUpcoming(page) {
     fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=642874b006093ef1d8becb7a5a90179c&page=" + page + "")
         .then(resp => resp.json())
         .then(resp => {
-            searchResult = resp.results;
-            maxLength = resp.total_pages;
+            let searchResult = resp.results;
+            let maxLength = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
             document.getElementById("btns-container").innerHTML = paginationCont();
             shortText();
