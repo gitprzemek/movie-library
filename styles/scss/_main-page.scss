@@ -282,23 +282,27 @@
         .container__arrows {
             height: 200px;
             width: 200px;
-            left: 35%;
+            left: 50%;
             top: 50%;
             position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            transform: translateY(150px);
+            transform: translate(-50%, 150px);
+            transform-origin: 50% 50%;
+
             @include tablets {
-                transform: translateY(220px);
+                transform: translate(-50%, 220px);
             }
+
             .container__arrow {
                 height: 220px;
+                left: 45px;
                 // margin-top: 15%;
                 position: absolute;
                 transform-origin: 0% -26%;
                 display: flex;
-                justify-content: flex-end;
+                justify-content: center;
                 align-items: center;
 
                 transform: perspective(70px) rotateY(15deg) translateX(0px);
@@ -327,14 +331,18 @@
                     }
 
                     @include tablets {
+                        top: -60px;
+                        left: -5px;
                         height: 320px;
                         transform: perspective(90px) rotateY(15deg) translateX(60px);
                     }
                 }
 
                 &--sec {
-                    height: 200px;
-                    transform: perspective(70px) rotateY(15deg) translateX(10px);
+                    top: 0px;
+                    left: 55px;
+                    height: 180px;
+                    transform: perspective(65px) rotateY(15deg) translateX(10px);
                     color: white;
                     -webkit-filter: drop-shadow(0px 0px 10px $purple);
                     filter: drop-shadow(0px 0px 30px $purple);
@@ -367,15 +375,19 @@
                     }
 
                     @include tablets {
-                        height: 300px;
-                        transform: perspective(90px) rotateY(15deg) translateX(60px);
+                        top: -55px;
+                        left: 15px;
+                        height: 260px;
+                        transform: perspective(80px) rotateY(15deg) translateX(60px);
                     }
 
                 }
 
                 &--thirth {
-                    height: 180px;
-                    transform: perspective(70px) rotateY(15deg) translateX(20px);
+                    top: 10px;
+                    left: 65px;
+                    height: 140px;
+                    transform: perspective(55px) rotateY(15deg) translateX(20px);
                     -webkit-filter: drop-shadow(0px 0px 1px $blue);
                     filter: drop-shadow(0px 0px 11px $blue);
                     animation: show3 3s linear infinite;
@@ -399,8 +411,10 @@
                     }
 
                     @include tablets {
-                        height: 280px;
-                        transform: perspective(90px) rotateY(15deg) translateX(60px);
+                        top: -50px;
+                        left: 35px;
+                        height: 220px;
+                        transform: perspective(70px) rotateY(15deg) translateX(60px);
                     }
                 }
             }

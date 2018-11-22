@@ -1173,7 +1173,7 @@ body * {
 .container .container__logo .container__arrows {
   height: 200px;
   width: 200px;
-  left: 35%;
+  left: 50%;
   top: 50%;
   position: absolute;
   display: -webkit-box;
@@ -1185,28 +1185,31 @@ body * {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transform: translateY(150px);
-          transform: translateY(150px);
+  -webkit-transform: translate(-50%, 150px);
+          transform: translate(-50%, 150px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 @media only screen and (min-width: 600px) {
   .container .container__logo .container__arrows {
-    -webkit-transform: translateY(220px);
-            transform: translateY(220px);
+    -webkit-transform: translate(-50%, 220px);
+            transform: translate(-50%, 220px);
   }
 }
 
 .container .container__logo .container__arrows .container__arrow {
   height: 220px;
+  left: 45px;
   position: absolute;
   -webkit-transform-origin: 0% -26%;
           transform-origin: 0% -26%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1253,6 +1256,8 @@ body * {
 
 @media only screen and (min-width: 600px) {
   .container .container__logo .container__arrows .container__arrow--first {
+    top: -60px;
+    left: -5px;
     height: 320px;
     -webkit-transform: perspective(90px) rotateY(15deg) translateX(60px);
             transform: perspective(90px) rotateY(15deg) translateX(60px);
@@ -1260,9 +1265,11 @@ body * {
 }
 
 .container .container__logo .container__arrows .container__arrow--sec {
-  height: 200px;
-  -webkit-transform: perspective(70px) rotateY(15deg) translateX(10px);
-          transform: perspective(70px) rotateY(15deg) translateX(10px);
+  top: 0px;
+  left: 55px;
+  height: 180px;
+  -webkit-transform: perspective(65px) rotateY(15deg) translateX(10px);
+          transform: perspective(65px) rotateY(15deg) translateX(10px);
   color: white;
   -webkit-filter: drop-shadow(0px 0px 10px #aa39aa);
   filter: drop-shadow(0px 0px 30px #aa39aa);
@@ -1302,16 +1309,20 @@ body * {
 
 @media only screen and (min-width: 600px) {
   .container .container__logo .container__arrows .container__arrow--sec {
-    height: 300px;
-    -webkit-transform: perspective(90px) rotateY(15deg) translateX(60px);
-            transform: perspective(90px) rotateY(15deg) translateX(60px);
+    top: -55px;
+    left: 15px;
+    height: 260px;
+    -webkit-transform: perspective(80px) rotateY(15deg) translateX(60px);
+            transform: perspective(80px) rotateY(15deg) translateX(60px);
   }
 }
 
 .container .container__logo .container__arrows .container__arrow--thirth {
-  height: 180px;
-  -webkit-transform: perspective(70px) rotateY(15deg) translateX(20px);
-          transform: perspective(70px) rotateY(15deg) translateX(20px);
+  top: 10px;
+  left: 65px;
+  height: 140px;
+  -webkit-transform: perspective(55px) rotateY(15deg) translateX(20px);
+          transform: perspective(55px) rotateY(15deg) translateX(20px);
   -webkit-filter: drop-shadow(0px 0px 1px #00dbdb);
   filter: drop-shadow(0px 0px 11px #00dbdb);
   -webkit-animation: show3 3s linear infinite;
@@ -1350,9 +1361,11 @@ body * {
 
 @media only screen and (min-width: 600px) {
   .container .container__logo .container__arrows .container__arrow--thirth {
-    height: 280px;
-    -webkit-transform: perspective(90px) rotateY(15deg) translateX(60px);
-            transform: perspective(90px) rotateY(15deg) translateX(60px);
+    top: -50px;
+    left: 35px;
+    height: 220px;
+    -webkit-transform: perspective(70px) rotateY(15deg) translateX(60px);
+            transform: perspective(70px) rotateY(15deg) translateX(60px);
   }
 }
 

@@ -14,7 +14,7 @@ const topRatedBtn = document.getElementById("topRated");
 const upcomingBtn = document.getElementById("upcoming");
 
 const btnSearch = document.getElementById("search-form__btn");
-const inputSearch = document.getElementById("search-form__input");
+const inputMovies = document.getElementById("search-form__input");
 // NAVIGATION CLOSE/OPEN
 /* Open */
 function openNav() {
@@ -59,7 +59,7 @@ function movieCard(movie) {
             <h2 class="movie-container__title">${movie.original_title}</h2>
             <p class="movie-container__date">${movie.release_date}</p>
             <p class="movie-container__text">${movie.overview}</p>
-            <a href="#" class="movie-container__more">MORE</a>
+            <a href="https://www.themoviedb.org/movie/${movie.id}" class="movie-container__more">MORE</a>
         </div>
     </div>
     `
@@ -121,12 +121,11 @@ function popular(page) {
 }
 
 // Load search movie
-function searchMovie(page) {
-    const inputSearch = document.getElementById("search-form__input").value;
-
+function searchMovie(inputSearch, page) {
     fetch("https://api.themoviedb.org/3/search/movie?api_key=642874b006093ef1d8becb7a5a90179c&query=" + inputSearch + "&page=" + page + "")
         .then(resp => resp.json())
         .then(resp => {
+            
             searchResult = resp.results;
             let maxLenght = resp.total_pages;
             document.getElementById("movie-section").innerHTML = `${searchResult.map(movieCard).join("")}`;
@@ -158,13 +157,15 @@ function searchMovie(page) {
             }
             paginationPage();
         });
-}
+};
 btnSearch.addEventListener("click", function () {
     searchMovie(1);
 });
-inputSearch.addEventListener("keyup", function(event) {
+inputMovies.addEventListener("keydown", function(event) {
+    let inputSearch = document.getElementById("search-form__input").value;
     if (event.keyCode === 13) {
-        searchMovie(1);
+        searchMovie(inputSearch, 1);
+        event.preventDefault();
     }
 });
 
