@@ -14,10 +14,15 @@ Layout is full responsive and is fully supported by all browsers. The site was c
 - CSS3
 - FLEX
 - SASS
+- JavaScript (ES6)
 - RWD
 - BEM
 - Gulp
 - Babel
+- Fontawesome
 - Photoshop
 - Adobe XD
 - Visual Studio Code
+
+## Vendor libraries
+- [Fontawesome](https://fontawesome.com/)
