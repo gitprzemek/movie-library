@@ -12,6 +12,7 @@ Layout is full responsive and is fully supported by all browsers. The site was c
 ## Technologies & techniques used
 - HTML5
 - CSS3
+- SVG
 - FLEX
 - SASS
 - JavaScript (ES6)
