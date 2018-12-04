@@ -126,14 +126,15 @@ function searchMovie(inputSearch, page) {
       function prevPage() {
         if (page > 1) {
           // currentPage--;
-          searchMovie(page - 1);
+          searchMovie(inputSearch, page - 1);
         }
       }
 
       function nextPage() {
         if (page < maxLenght) {
           // currentPage++;
-          searchMovie(page + 1);
+          searchMovie(inputSearch, page + 1);
+          console.log("max " + maxLenght);
           console.log(page);
         }
       }
@@ -148,7 +149,8 @@ function searchMovie(inputSearch, page) {
 
 ;
 btnSearch.addEventListener("click", function () {
-  searchMovie(1);
+  var inputSearch = document.getElementById("search-form__input").value;
+  searchMovie(inputSearch, 1);
 });
 inputMovies.addEventListener("keydown", function (event) {
   var inputSearch = document.getElementById("search-form__input").value;
